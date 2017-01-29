@@ -37,7 +37,6 @@ export function init() {
   var container = document.getElementById( 'game' );
   container.appendChild( renderer.domElement );
 
-  
   camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
   camera.position.x = BOARD_SIZE * CUBE_SIZE / 2;
   camera.position.y = BOARD_SIZE * CUBE_SIZE / 2;
@@ -46,25 +45,28 @@ export function init() {
   controls = new THREE.OrbitControls( camera, renderer.domElement );
   controls.enableZoom = true;
 
-        let light = new THREE.DirectionalLight( 0xcccccc );
-        light.position.set( 1, 1, 1 );
-        scene.add( light );
-        light = new THREE.DirectionalLight( 0xffffff );
-        light.position.set( -1, -1, 200 );
-        scene.add( light );
-        light = new THREE.AmbientLight( 0x222222 );
-        scene.add( light );
+  // 
+  //  add lights
+  let light = new THREE.DirectionalLight( 0xcccccc );
+  light.position.set( 1, 1, 1 );
+  scene.add( light );
+  light = new THREE.DirectionalLight( 0xffffff );
+  light.position.set( -1, -1, 200 );
+  scene.add( light );
+  light = new THREE.AmbientLight( 0x222222 );
+  scene.add( light );
+
 
   geometry = new THREE.BoxGeometry( CUBE_SIZE, CUBE_SIZE, CUBE_SIZE );
-
   window.addEventListener( 'resize', onWindowResize, false );
 
   // build a single 'cell' object
   // this object is the 3js mesh
   // 'params' is an object that will include keys x,y,z, and isAlive
   const createCell = function(params){
-    const color = params.isAlive ? 0x00ff00 : 0xff0000;
-    material = new THREE.MeshPhongMaterial( { color: color, wireframe: !params.isAlive } );
+    const color = 0x00ff00;
+    material = new THREE.MeshPhongMaterial( { color: color, wireframe: false } );
+    material.visible = params.isAlive;
     mesh = new THREE.Mesh( geometry, material );
 
     mesh.position.x = params.x;
@@ -73,18 +75,11 @@ export function init() {
     mesh.isAlive = params.isAlive;
     mesh.isAliveNextTurn = null;
 
-
     mesh.setStatus = function(){
-      if (this.isAlive === null) throw Error ('null alive state');
       if (this.isAlive){
-        this.material.wireframe = false;
         this.material.visible = true;
-        this.material.color.g = 1;
-        this.material.color.r = 0;
       } else {
         this.material.visible = false;
-        this.material.color.r = 1;
-        this.material.color.g = 1;
       }
     }
     
