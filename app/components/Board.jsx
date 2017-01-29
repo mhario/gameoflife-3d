@@ -31,7 +31,7 @@ export function init() {
   scene = new THREE.Scene();
 
   renderer = new THREE.WebGLRenderer();
-  renderer.setClearColor( 0xcccccc );
+  renderer.setClearColor( 0x55aa55 );
   renderer.setSize( window.innerWidth, window.innerHeight );
   
   var container = document.getElementById( 'game' );

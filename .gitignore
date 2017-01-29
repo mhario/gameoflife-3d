@@ -1,6 +1,7 @@
 NODE_MODULES
 .DS_Store
 bundle.js
+bundle.js.map
 orbit.html
 ARCHIVE
 
