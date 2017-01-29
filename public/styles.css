@@ -1,0 +1,51 @@
+
+.side-bar{
+
+  background-color: black;
+}
+
+.side-bar span {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.side-bar .col-xs-3 {
+  padding-top: 1.5em;
+}
+
+.side-bar .bracket-button{
+  border-radius: 30px;
+}
+
+.side-bar strong{
+  color: white;
+}
+
+body{
+  background-color: black;
+}
+
+.side-bar p {
+  color: white;
+  display: inline;
+}
+
+.side-bar h2,h4 {
+  color: white;
+  text-align: center;
+}
+
+.side-bar button {
+  margin: 1em;
+}
+
+.side-bar input {
+  width: 3em;
+  display: inline;
+  margin-top: 1em;
+}
+
+.game {
+  padding: 0px 0px;
+}
