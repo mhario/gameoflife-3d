@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import render from 'react-dom';
 
-import { View } from './components/view';
+import { View } from './components/View';
 
 ReactDOM.render (
   <View />,
