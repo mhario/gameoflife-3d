@@ -8,11 +8,14 @@ export const Sidebar = props => (
       <div className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 menu main-menu">
         <form onSubmit={props.handleSubmit}>
           <h2>Game of Life</h2>
-          <div className="col-xs-3"><p>Board Size:</p></div>
-          <div className="col-xs-9"><input id="boardSize" type="range" value={props.boardSize} min="5" max="25" onChange={props.handleBoardSize}/></div>
-          <div className="col-xs-3"><p> Seed life percentage: </p></div>
-          <br />
-          <div className="col-xs-9"><input id="lifePercent" value={props.lifePercent} type="range" min="0" max="1" step=".05" onChange={props.handleLifeRatio}/></div>
+          <div className="row">
+            <div className="col-xs-5"><p> Board Size:</p></div>
+            <div className="col-xs-7"><input id="boardSize" type="range" className="sliderBar" value={props.boardSize} min="5" max="25" onChange={props.handleBoardSize}/></div>
+          </div>
+          <div className="row">
+            <div className="col-xs-5"><p> Seed life percentage: </p></div>
+            <div className="col-xs-7"><input id="lifePercent" type="range" className="sliderBar" value={props.lifePercent} min="0" max="1" step=".05" onChange={props.handleLifeRatio}/></div>
+          </div>
           <br />
           <hr />
           <h4>Living Neighbor Rules</h4>

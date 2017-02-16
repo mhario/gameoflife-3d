@@ -7,8 +7,8 @@ export class View extends Component {
   render () {
     return (
       <div className="fluid-container">
-        <SidebarContainer />
-        <div id="game" className="col-md-9">
+        <SidebarContainer className="col-xs-12" />
+        <div id="game" className="col-xs-12">
         </div>
       </div>
     ); 

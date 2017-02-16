@@ -19,8 +19,19 @@
   border-radius: 30px;
 }
 
+.menu input {
+  width: 3em;
+  display: inline;
+  margin-top: 1em;
+}
+
 .menu strong{
   color: white;
+  padding-top: '1.5em';
+}
+
+#lifePercent {
+  width: 80%;
 }
 
 #boardSize{
@@ -49,11 +60,6 @@ body{
   margin: 1em;
 }
 
-.menu input {
-  width: 3em;
-  display: inline;
-  margin-top: 1em;
-}
 
 #game {
   padding: 0px 0px;
