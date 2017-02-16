@@ -1,46 +1,51 @@
 
-.side-bar{
-
+.top-bar{
   background-color: black;
 }
 
-.side-bar span {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+.menu {
+  background-color: black;
 }
 
-.side-bar .col-xs-3 {
-  padding-top: 1.5em;
+.main-menu{
+  padding: 0;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
-.side-bar .bracket-button{
+.menu .bracket-button{
   border-radius: 30px;
 }
 
-.side-bar strong{
+.menu strong{
   color: white;
 }
 
 body{
+  background-color: #55aa55;
+}
+
+.controls {
   background-color: black;
 }
 
-.side-bar p {
+.menu p {
   color: white;
   display: inline;
 }
 
-.side-bar h2,h4 {
+.menu h2,h4 {
   color: white;
   text-align: center;
 }
 
-.side-bar button {
+.menu button {
   margin: 1em;
 }
 
-.side-bar input {
+.menu input {
   width: 3em;
   display: inline;
   margin-top: 1em;
