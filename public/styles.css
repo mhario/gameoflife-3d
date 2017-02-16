@@ -23,6 +23,10 @@
   color: white;
 }
 
+#boardSize{
+  width: 80%;
+}
+
 body{
   background-color: #55aa55;
 }
