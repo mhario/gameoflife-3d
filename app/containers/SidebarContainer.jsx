@@ -5,9 +5,9 @@ import { allCells, init, animate } from '../components/Board';
 import { calcTurn, nextTurn } from '../gameLogic';
 
 export let SEED_LIFE_RATIO = .25,
-  MIN_LIVING_NEIGHBORS = 4,
-  MAX_LIVING_NEIGHBORS = 5,
-  LIVING_NEIGHBORS_TO_BIRTH = 5;
+  MIN_LIVING_NEIGHBORS = 2,
+  MAX_LIVING_NEIGHBORS = 3,
+  LIVING_NEIGHBORS_TO_BIRTH = 3;
 
 export let CUBE_SIZE = 200;
 export let BOARD_SIZE = 5;
