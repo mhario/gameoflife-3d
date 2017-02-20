@@ -2,7 +2,7 @@
 //
 //  expose the init() function which:
 //      creates the board and displays it on the screen
-//      
+//
 //  export the board state as a variable
 //      game logic will be in another file
 //      and directly access the board state here.
@@ -18,11 +18,11 @@ import { SEED_LIFE_RATIO, MIN_LIVING_NEIGHBORS, MAX_LIVING_NEIGHBORS, LIVING_NEI
 import { CUBE_SIZE, BOARD_SIZE } from '../containers/SidebarContainer.jsx';
 
 // this is the (one and only) board state variable
-// there is a good chance that this 
+// there is a good chance that this
 //    should be refactored into the react state
 export let allCells;
 
-// init will: 
+// init will:
 //    create a camera and renderer
 //    produce an array of cell objects (randomly alive/dead)
 //    add the cell objects to the scene
@@ -33,7 +33,7 @@ export function init() {
   renderer = new THREE.WebGLRenderer();
   renderer.setClearColor( 0x55aa55 );
   renderer.setSize( window.innerWidth, window.innerHeight );
-  
+
   var container = document.getElementById( 'game' );
   container.appendChild( renderer.domElement );
 
@@ -45,7 +45,7 @@ export function init() {
   controls = new THREE.OrbitControls( camera, renderer.domElement );
   controls.enableZoom = true;
 
-  // 
+  //
   //  add lights
   let light = new THREE.DirectionalLight( 0xcccccc );
   light.position.set( 1, 1, 1 );
@@ -82,7 +82,7 @@ export function init() {
         this.material.visible = false;
       }
     }
-    
+
     return mesh;
   }
 
@@ -100,7 +100,7 @@ export function init() {
         temp[x][y] = [];
         for(let z = 0; z <= BOARD_SIZE; z++){
           let isAlive = (Math.random() < SEED_LIFE_RATIO);
-          temp[x][y][z] = createCell({x:x*CUBE_SIZE,y:y*CUBE_SIZE, z:z*CUBE_SIZE, isAlive:isAlive}); 
+          temp[x][y][z] = createCell({x:x*CUBE_SIZE,y:y*CUBE_SIZE, z:z*CUBE_SIZE, isAlive:isAlive});
           scene.add(temp[x][y][z]);
         }
       }
@@ -108,7 +108,7 @@ export function init() {
 
     // creates an array of neighbors on each cell on the board
     // will not contain cells that are out-of-bounds (invalid)
-    // this is in hopes of simplifying game logic at the cost of using 
+    // this is in hopes of simplifying game logic at the cost of using
     //    a       very      ugly hexa-for-loop
     for(let x = 0; x <= BOARD_SIZE; x++){
       for(let y = 0; y <= BOARD_SIZE; y++){

@@ -44,7 +44,7 @@ export class SidebarContainer extends Component {
   }
 
   cycleTurn () {
-    calcTurn();
+    calcTurn(allCells);
     nextTurn();
   }
 
@@ -79,15 +79,15 @@ export class SidebarContainer extends Component {
 
   render() {
     return (
-      <Sidebar 
+      <Sidebar
         drawnBoard={this.state.drawnBoard}
         boardSize={BOARD_SIZE}
-        handleSubmit={this.handleSubmit} 
+        handleSubmit={this.handleSubmit}
         cycleTurn={this.cycleTurn}
         lifePercent={SEED_LIFE_RATIO}
         minLive={MIN_LIVING_NEIGHBORS}
         maxLive={MAX_LIVING_NEIGHBORS}
-        numberBirth={LIVING_NEIGHBORS_TO_BIRTH} 
+        numberBirth={LIVING_NEIGHBORS_TO_BIRTH}
         handleBoardSize={this.handleBoardSize}
         changeNums={this.changeNums}
         handleLifeRatio={this.handleLifeRatio}
@@ -95,5 +95,5 @@ export class SidebarContainer extends Component {
       />
     );
   }
-  
+
 }
