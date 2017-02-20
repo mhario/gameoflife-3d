@@ -22,7 +22,7 @@ I am a recent graduate of the FullStack Academy of Code remote immersive softwar
 
 Another project in which I am involved is *BiteSwipe*, a native android application, under development by a team of four FullStack Academy Alums. The GitHub page for that project can be found [here.](https://github.com/dennisdeng2002/biteswipe)
 
-I would welcome any feedback, and can be contacted by email, here: hario.mark@gmail.com. 
+I would welcome any feedback, and can be contacted by email, here: hario.mark@gmail.com 
 
 I can also be reached on LinkedIn, [here.](https://www.linkedin.com/in/mark-hario-6b871285/)
 
