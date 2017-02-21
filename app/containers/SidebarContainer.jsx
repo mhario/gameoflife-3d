@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Sidebar } from '../components/Sidebar';
 
-import { allCells, init, animate } from '../components/Board';
-import { calcTurn, nextTurn } from '../gameLogic';
+import { init, animate } from '../components/Board';
+import { calcTurn } from '../gameLogic';
 
 export let SEED_LIFE_RATIO = .25,
   MIN_LIVING_NEIGHBORS = 2,
@@ -18,6 +18,7 @@ export class SidebarContainer extends Component {
   constructor () {
     super ();
     this.state = {
+      board: {},
       drawnBoard: false,
       boardSize: 5,
       minLiving: MIN_LIVING_NEIGHBORS,
@@ -29,6 +30,7 @@ export class SidebarContainer extends Component {
     this.changeNums = this.changeNums.bind(this);
     this.handleLifeRatio = this.handleLifeRatio.bind(this);
     this.runTurns = this.runTurns.bind(this);
+    this.cycleTurn = this.cycleTurn.bind(this);
   }
 
   handleBoardSize (evt) {
@@ -44,8 +46,7 @@ export class SidebarContainer extends Component {
   }
 
   cycleTurn () {
-    calcTurn(allCells);
-    nextTurn();
+    this.setState({board: calcTurn(this.state.board)});
   }
 
   runTurns () {
@@ -65,14 +66,15 @@ export class SidebarContainer extends Component {
       case 'birthLess': LIVING_NEIGHBORS_TO_BIRTH--; break;
       case 'birthMore': LIVING_NEIGHBORS_TO_BIRTH++; break;
     }
-    this.setState({
-    });
+    this.setState({}); // triggers a re-render
+      // all variables above should be refactored to state
   }
 
   handleSubmit (evt) {
     evt.preventDefault();
     BOARD_SIZE--;
-    init();
+    let tempVal = init();
+    this.setState({board: tempVal});
     animate();
     this.setState({drawnBoard: true});
   }

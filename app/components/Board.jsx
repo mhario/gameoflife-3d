@@ -13,14 +13,15 @@ var scene, camera, renderer, controls;
 var geometry, material, mesh;
 
 
-import { SEED_LIFE_RATIO, MIN_LIVING_NEIGHBORS, MAX_LIVING_NEIGHBORS, LIVING_NEIGHBORS_TO_BIRTH } from '../containers/SidebarContainer.jsx';
+import { SEED_LIFE_RATIO, MIN_LIVING_NEIGHBORS, MAX_LIVING_NEIGHBORS,
+  LIVING_NEIGHBORS_TO_BIRTH, setInitState } from '../containers/SidebarContainer.jsx';
 
 import { CUBE_SIZE, BOARD_SIZE } from '../containers/SidebarContainer.jsx';
 
 // this is the (one and only) board state variable
 // there is a good chance that this
 //    should be refactored into the react state
-export let allCells;
+// export let allCells;
 
 // init will:
 //    create a camera and renderer
@@ -93,15 +94,15 @@ export function init() {
   //    cells[x][y][z]
   //
   function buildBoard () {
-    let temp = [];
+    let boardCells = [];
     for(let x = 0; x <= BOARD_SIZE; x++){
-      temp[x] = [];
+      boardCells[x] = [];
       for(let y = 0; y <= BOARD_SIZE; y++){
-        temp[x][y] = [];
+        boardCells[x][y] = [];
         for(let z = 0; z <= BOARD_SIZE; z++){
           let isAlive = (Math.random() < SEED_LIFE_RATIO);
-          temp[x][y][z] = createCell({x:x*CUBE_SIZE,y:y*CUBE_SIZE, z:z*CUBE_SIZE, isAlive:isAlive});
-          scene.add(temp[x][y][z]);
+          boardCells[x][y][z] = createCell({x:x*CUBE_SIZE,y:y*CUBE_SIZE, z:z*CUBE_SIZE, isAlive:isAlive});
+          scene.add(boardCells[x][y][z]);
         }
       }
     }
@@ -113,7 +114,7 @@ export function init() {
     for(let x = 0; x <= BOARD_SIZE; x++){
       for(let y = 0; y <= BOARD_SIZE; y++){
         for(let z = 0; z <= BOARD_SIZE; z++){
-          temp[x][y][z].neighbors = [];
+          boardCells[x][y][z].neighbors = [];
           for(let a = -1; a <= 1; a++){
             for(let b = -1; b <= 1; b++){
               for(let c = -1; c <= 1; c++){
@@ -121,7 +122,7 @@ export function init() {
                 if (a===0 && b===0 && c===0) continue;
                 if (a+x < 0 || b+y < 0 || c+z < 0) continue;
                 if (a+x > BOARD_SIZE || b+y > BOARD_SIZE || c+z > BOARD_SIZE)continue;
-                temp[x][y][z].neighbors.push(temp[a+x][b+y][c+z]);
+                boardCells[x][y][z].neighbors.push(boardCells[a+x][b+y][c+z]);
               }
             }
           }
@@ -129,11 +130,12 @@ export function init() {
       }
     }
 
-    return temp;
+    return boardCells;
   }
 
 //  adds the cells to the scene
-  allCells = buildBoard();
+  let allCells = buildBoard();
+  return allCells;
 }
 
 function onWindowResize() {
