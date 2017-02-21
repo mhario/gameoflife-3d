@@ -3,7 +3,10 @@ import { MIN_LIVING_NEIGHBORS, MAX_LIVING_NEIGHBORS,
 
 // pass the board to this function
 // returns the board as it appears the following turn
-export function calcTurn (boardCells) {
+export function calcTurn (boardCells = null) {
+
+  if (boardCells === null) throw new Error('No Board');
+
   let newBoardCells = boardCells;
 
   //  counts number of living neighbors for each cell on the board
