@@ -1,32 +1,13 @@
-// this module will:
-//
-//  expose the init() function which:
-//      creates the board and displays it on the screen
-//
-//  export the board state as a variable
-//      game logic will be in another file
-//      and directly access the board state here.
-//      this may or may not be stupid.
-//
-//  /// /// ///
 var scene, camera, renderer, controls;
 var geometry, material, mesh;
 
-
-import { SEED_LIFE_RATIO, MIN_LIVING_NEIGHBORS, MAX_LIVING_NEIGHBORS,
-  LIVING_NEIGHBORS_TO_BIRTH, setInitState } from '../containers/SidebarContainer.jsx';
-
-import { CUBE_SIZE, BOARD_SIZE } from '../containers/SidebarContainer.jsx';
-
-// this is the (one and only) board state variable
-// there is a good chance that this
-//    should be refactored into the react state
-// export let allCells;
+import { CUBE_SIZE, BOARD_SIZE, SEED_LIFE_RATIO } from '../containers/SidebarContainer.jsx';
 
 // init will:
-//    create a camera and renderer
-//    produce an array of cell objects (randomly alive/dead)
+//    create a camera, lights, and renderer
+//    produce and seed the game board
 //    add the cell objects to the scene
+//    return the cell board to the SidebarContainer
 export function init() {
 
   scene = new THREE.Scene();
@@ -46,8 +27,6 @@ export function init() {
   controls = new THREE.OrbitControls( camera, renderer.domElement );
   controls.enableZoom = true;
 
-  //
-  //  add lights
   let light = new THREE.DirectionalLight( 0xcccccc );
   light.position.set( 1, 1, 1 );
   scene.add( light );
@@ -56,7 +35,6 @@ export function init() {
   scene.add( light );
   light = new THREE.AmbientLight( 0x222222 );
   scene.add( light );
-
 
   geometry = new THREE.BoxGeometry( CUBE_SIZE, CUBE_SIZE, CUBE_SIZE );
   window.addEventListener( 'resize', onWindowResize, false );
@@ -87,12 +65,15 @@ export function init() {
     return mesh;
   }
 
+  //  adds the cells to the scene
+  let allCells = buildBoard();
+  return allCells;
 
-  // creates and returns an array of cell objects
+
+  // creates, adds to scene, and returns an array of cell objects
   // this array will be accesed like so, in 3d:
   //
   //    cells[x][y][z]
-  //
   function buildBoard () {
     let boardCells = [];
     for(let x = 0; x <= BOARD_SIZE; x++){
@@ -102,15 +83,13 @@ export function init() {
         for(let z = 0; z <= BOARD_SIZE; z++){
           let isAlive = (Math.random() < SEED_LIFE_RATIO);
           boardCells[x][y][z] = createCell({x:x*CUBE_SIZE,y:y*CUBE_SIZE, z:z*CUBE_SIZE, isAlive:isAlive});
-          scene.add(boardCells[x][y][z]);
+          scene.add(boardCells[x][y][z]); // add the cell to the scene
         }
       }
     }
 
     // creates an array of neighbors on each cell on the board
     // will not contain cells that are out-of-bounds (invalid)
-    // this is in hopes of simplifying game logic at the cost of using
-    //    a       very      ugly hexa-for-loop
     for(let x = 0; x <= BOARD_SIZE; x++){
       for(let y = 0; y <= BOARD_SIZE; y++){
         for(let z = 0; z <= BOARD_SIZE; z++){
@@ -129,13 +108,9 @@ export function init() {
         }
       }
     }
-
     return boardCells;
   }
 
-//  adds the cells to the scene
-  let allCells = buildBoard();
-  return allCells;
 }
 
 function onWindowResize() {

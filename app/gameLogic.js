@@ -1,16 +1,13 @@
-// this module will examine the board state from components/Board.jsx
-// and determine the state of the board on the next turn
-// it will return that object
-
-import { CUBE_SIZE, SEED_LIFE_RATIO, BOARD_SIZE,
-  MIN_LIVING_NEIGHBORS, MAX_LIVING_NEIGHBORS,
+import { MIN_LIVING_NEIGHBORS, MAX_LIVING_NEIGHBORS,
   LIVING_NEIGHBORS_TO_BIRTH } from './containers/SidebarContainer.jsx';
 
-//  counts number of living neighbors for each cell
-//  sets the 'isAliveNextTurn' based on the count
+// pass the board to this function
+// returns the board as it appears the following turn
 export function calcTurn (boardCells) {
   let newBoardCells = boardCells;
 
+  //  counts number of living neighbors for each cell on the board
+  //  sets the 'isAliveNextTurn' based on the count
   newBoardCells.forEach( cellArr => {
     cellArr.forEach( cellArr => {
       cellArr.forEach( cell => {
@@ -30,13 +27,12 @@ export function calcTurn (boardCells) {
         if (!cell.isAlive && livingNeighbors === LIVING_NEIGHBORS_TO_BIRTH) {
           cell.isAliveNextTurn = true;
         }
-
       });
     });
   });
 
   //  iterates over the entire game board
-  //  and sets all life flags
+  //  and sets all life flags to next turn state
   newBoardCells.forEach( cellArr => {
     cellArr.forEach( cellArr => {
       cellArr.forEach( cell => {

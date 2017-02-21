@@ -23,7 +23,8 @@ export class SidebarContainer extends Component {
       boardSize: 5,
       minLiving: MIN_LIVING_NEIGHBORS,
       maxLiving: MAX_LIVING_NEIGHBORS,
-      ratio: SEED_LIFE_RATIO }
+      ratio: SEED_LIFE_RATIO,
+    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleBoardSize = this.handleBoardSize.bind(this);
@@ -35,18 +36,18 @@ export class SidebarContainer extends Component {
 
   handleBoardSize (evt) {
     const value = evt.target.value;
-    this.setState({boardSize: value});
+    this.setState({ boardSize: value });
     BOARD_SIZE = value;
   }
 
   handleLifeRatio (evt) {
     const value = evt.target.value;
-    this.setState({ratio: value});
+    this.setState({ ratio: value });
     SEED_LIFE_RATIO = value;
   }
 
   cycleTurn () {
-    this.setState({board: calcTurn(this.state.board)});
+    this.setState({ board: calcTurn(this.state.board) });
   }
 
   runTurns () {
@@ -73,10 +74,10 @@ export class SidebarContainer extends Component {
   handleSubmit (evt) {
     evt.preventDefault();
     BOARD_SIZE--;
-    let tempVal = init();
-    this.setState({board: tempVal});
+    let gameBoard = init();
+    this.setState({ board: gameBoard });
     animate();
-    this.setState({drawnBoard: true});
+    this.setState({ drawnBoard: true});
   }
 
   render() {
