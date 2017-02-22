@@ -3,8 +3,7 @@
   background-color: black;
 }
 
-
-.menu {
+.menu{
   background-color: black;
 }
 
@@ -19,15 +18,15 @@
   border-radius: 30px;
 }
 
-.label {
+.label{
   padding-top: 1.5em;
 }
 
-.buttonLabel {
+.buttonLabel{
   padding-top: 2em;
 }
 
-.menu input {
+.menu input{
   width: 3em;
   display: inline;
   margin-top: 1em;
@@ -38,7 +37,7 @@
   padding-top: '1.5em';
 }
 
-#lifePercent {
+#lifePercent{
   width: 80%;
 }
 
@@ -51,22 +50,22 @@ body{
   overflow: hidden;
 }
 
-.menu p {
+.menu p{
   color: white;
   display: inline;
 }
 
-.menu h2,h4 {
+.menu h2,h4{
   color: white;
   text-align: center;
 }
 
-.menu button {
+.menu button{
   margin: 1em;
 }
 
 
-#game {
+#game{
   padding: 0px 0px;
   width: '100%';
   height: '100%';
