@@ -32,5 +32,5 @@
     "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
