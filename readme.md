@@ -8,7 +8,7 @@
 
 This game is the product of the "Hackathon" project for FullStack Academy. The original functionality was hacked together over three days, by one guy: Me! I am continuing to work on the project while pursuing employment.
 
-The beta version of the game is currently available to play [here.](gameoflife-3d.herokuapp.com)
+The beta version of the game is currently available to play [here.](http://gameoflife-3d.herokuapp.com)
 
 Thank you for checking out the 3D Game of Life!
 
