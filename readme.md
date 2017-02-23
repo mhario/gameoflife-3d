@@ -1,5 +1,9 @@
 # 3D Game of Life
 
+![3d GoL Menu Image](https://github.com/mhario/public/img/menu.png "Game setup menu")
+![3d GoL Game Image](https://github.com/mhario/public/img/game.png "Game play view")
+
+
 ## What this is
 
 This game is the product of the "Hackathon" project for FullStack Academy. The original functionality was 'hacked' together over three days, by one guy: Me! I am continuing to work on the project as a means to practice JavaScript, while pursuing employment.

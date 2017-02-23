@@ -11,9 +11,10 @@ describe('Game Logic', function() {
       // this is not known to be the right kind of error
     });
 
-    it('this test will always pass lol', function() {
-      assert.equal(-1, [1,2,3].indexOf(4));
-      // assert.typeOf('object', );
+    it('should return a new board object', function() {
+      assert.equal('object', typeof calcTurn([]) );
+      // these tests both need to be expanded
     });
   });
+  
 });
