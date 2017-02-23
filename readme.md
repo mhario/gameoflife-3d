@@ -1,8 +1,7 @@
 # 3D Game of Life
 
-![3d GoL Menu Image](./public/img/menu.png "Game setup menu")
-![3d GoL Game Image](./public/img/game.png "Game play view")
-<img src="./public/img/game.png" width="50">
+<img src="./public/img/menu.png" width="300">
+<img src="./public/img/game.png" width="300">
 
 
 ## What this is
