@@ -1,7 +1,7 @@
 # 3D Game of Life
 
-![3d GoL Menu Image](https://github.com/mhario/public/img/menu.png "Game setup menu")
-![3d GoL Game Image](https://github.com/mhario/public/img/game.png "Game play view")
+![3d GoL Menu Image](https://github.com/mhario/gameoflife-3d/public/img/menu.png "Game setup menu")
+![3d GoL Game Image](https://github.com/mhario/gameoflife-3d/public/img/game.png "Game play view")
 
 
 ## What this is
