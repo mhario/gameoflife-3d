@@ -3,7 +3,7 @@ import React from 'react';
 export const Sidebar = props => (
   <div>
     {
-      (props.drawnBoard == false) 
+      (props.drawnBoard == false)
       ?
       <div className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 menu main-menu">
         <form onSubmit={props.handleSubmit}>
@@ -34,14 +34,14 @@ export const Sidebar = props => (
       :
       <div className="col-xs-12 menu">
         <div className="col-xs-4 text-center">
-        <button 
+        <button
           className="btn-primary btn"
-          onClick={() => props.cycleTurn()}>Cycle Turn</button>
-        </div>  
+          onClick={() => props.cycleTurn()}>Single Turn</button>
+        </div>
         <div className="col-xs-4 text-center">
-          <button 
+          <button
             className="btn-primary btn"
-            onClick={() => props.runTurns()}>Play
+            onClick={() => props.runTurns()}>Play in Auto
           </button>
         </div>
         <div className="col-xs-4 text-center">
@@ -49,7 +49,7 @@ export const Sidebar = props => (
             <button type="submit" className="btn">Reset</button>
           </form>
         </div>
-      </div>  
+      </div>
     }
   </div>
 );

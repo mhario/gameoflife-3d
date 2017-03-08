@@ -14,8 +14,17 @@
   border-top-right-radius: 0px;
 }
 
+.btn {
+  height: 100%;
+  width: 60%;
+  padding: 12px 12px;
+}
+
 .menu .bracket-button{
+  height:initial;
+  width:initial;
   border-radius: 30px;
+  padding: 12px 20px;
 }
 
 .label{
