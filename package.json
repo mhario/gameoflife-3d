@@ -27,6 +27,7 @@
     "mocha": "*"
   },
   "scripts": {
+    "build": "webpack -w",
     "start": "nodemon server/start.js",
     "test": "mocha --compilers js:babel-core/register --recursive",
     "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
